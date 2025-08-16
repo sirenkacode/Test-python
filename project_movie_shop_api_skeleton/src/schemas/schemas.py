@@ -8,21 +8,31 @@ class Movie(BaseModel):
     gender: list[str]
     shop: str
     rent: bool = False
+    
 class MovieRequestCreate(BaseModel):
     name: str
     director: str
     gender: list[str]
     shop: str
-    rent: bool
+
 class MovieRequestUpdate(BaseModel):
     name: str
     director: str
     gender: list[str]
 
+class MovieShopRequestUpdate(BaseModel):
+    shop: int
 
 class Shop(BaseModel):
     id: int
+    address: str
+    manager: str
+    movies: list[Movie] = []
+    
 class ShopRequestCreate(BaseModel):
-    id: int
-class ShopUpdate(BaseModel):
-    id: int
+    address: str
+    manager: str
+
+class ShopRequestUpdate(BaseModel):
+    address: str
+    manager: str
